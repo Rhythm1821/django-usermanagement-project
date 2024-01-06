@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib.auth import login,logout,authenticate  
-from .form import RegisterForm
+from .forms import RegisterForm
 
 # Create your views here.
 def home(request):
@@ -18,3 +18,8 @@ def sign_up(request):
         form = RegisterForm()
 
     return render(request,"registration/sign_up.html",{"form":form})
+
+# Rhythm422@
+def logout_user(request):
+    logout(request)
+    return redirect("login")
